@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.mego"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -42,14 +42,13 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:navigation"))
-    implementation(project(":core:uikit"))
+
+    implementation(project(":core:common"))
     implementation(project(":core:data"))
     implementation(project(":core:datastore"))
-    implementation(project(":core:domain"))
-    implementation(project(":feature"))
-    implementation(project(":legacy"))
-    implementation(project(":sync"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:network"))
+    implementation(project(":core:uikit"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

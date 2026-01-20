@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.mego.navigation"
+    namespace = "com.example.navigation"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

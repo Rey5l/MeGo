@@ -23,12 +23,14 @@ rootProject.name = "MeGo"
 include(":app")
 include(":core")
 include(":feature")
-include(":legacy")
 include(":sync")
+include(":legacy")
+
+
+
 include(":core:common")
 include(":core:data")
 include(":core:datastore")
-include(":core:domain")
 include(":core:navigation")
 include(":core:network")
 include(":core:uikit")
