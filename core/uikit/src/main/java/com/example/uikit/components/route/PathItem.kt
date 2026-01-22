@@ -24,12 +24,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.uikit.R
+import com.example.uikit.Icon.MegaIcons
 import com.example.uikit.theme.ColorPurpure
 import com.example.uikit.theme.ColorRed
+import com.example.uikit.theme.CorporateMeGoPrimary
 import com.example.uikit.theme.MegoFontFamily
 import com.example.uikit.theme.OpacityDark40
 import com.example.uikit.theme.OpacityDark80
@@ -63,6 +66,7 @@ fun PathItem(
             AsyncImage(
                 model = path.image,
                 contentDescription = "Фотокарточка пути",
+                placeholder = painterResource(R.drawable.ic_placeholder_image_background), // заменить заглушку на лого из фигмы
                 modifier = Modifier
                     .padding(4.dp)
                     .size(140.dp)
@@ -111,7 +115,7 @@ fun PathItem(
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            painter = painterResource(id = R.drawable.outline_my_location_24),
+                            imageVector = MegaIcons.icMyLocation(),
                             contentDescription = "my_location",
                             Modifier.size(16.dp),
                             tint = OpacityDark40
@@ -128,7 +132,7 @@ fun PathItem(
                     }
                     Row(modifier = Modifier.padding(bottom = 4.dp),verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            painter = painterResource(id = R.drawable.outline_nest_clock_farsight_analog_24),
+                            imageVector = MegaIcons.icClock(),
                             contentDescription = "clock",
                             Modifier.size(16.dp),
                             tint = OpacityDark40
@@ -154,7 +158,7 @@ fun PathItem(
             )
             {
                 Icon(
-                    painter = if (path.isFavorite) painterResource(R.drawable.baseline_favorite_24) else painterResource(R.drawable.outline_favorite_24),
+                    imageVector = if (path.isFavorite) MegaIcons.icFavorite() else MegaIcons.icNotFavorite(),
                     contentDescription = null,
                     tint = if (path.isFavorite) ColorRed else OpacityDark40
                 )
@@ -188,4 +192,48 @@ private fun formatDotsText(count: Int): String {
     }
 
     return "$count $word"
+}
+//для тестов
+@Preview(showBackground = true)
+@Composable
+fun TestPathItem(){
+    val item = PathItemModel(
+        id = 1,
+        title = "Первое путешествие",
+        createdAt = "05.01.2047",
+        description = "TODO()",
+        image = "https://www.meme-arsenal.com/memes/d9156ddbe0074b2ac2e45d39e337d6b6.jpg",
+        stage = true,
+        isFavorite = true,
+        duration = 15,
+        markCount = 25,
+    )
+
+    Column(Modifier.background(CorporateMeGoPrimary)) {
+        PathItem(
+            path = item,
+            onLikeClick = {},
+            onLongClick = {},
+            onClick = {}
+        )
+        PathItem(
+            path = item,
+            onLikeClick = {},
+            onLongClick = {},
+            onClick = {}
+        )
+        PathItem(
+            path = item,
+            onLikeClick = {},
+            onLongClick = {},
+            onClick = {}
+        )
+        PathItem(
+            path = item,
+            onLikeClick = {},
+            onLongClick = {},
+            onClick = {}
+        )
+    }
+
 }
