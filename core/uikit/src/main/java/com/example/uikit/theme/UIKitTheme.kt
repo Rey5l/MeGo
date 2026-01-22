@@ -9,6 +9,11 @@ private val LocalUIKitTypography = staticCompositionLocalOf { DefaultUIKitTypogr
 
 /**
  * Глобальный доступ к дизайн‑системе UI‑кита.
+ *
+ * ### Как подключать в приложении
+ * Оберните экран/компонент в `UIKitTheme { ... }`, чтобы внутри были доступны:
+ * - `UIKitTheme.colors`
+ * - `UIKitTheme.typography`
  */
 object UIKitTheme {
 
@@ -23,6 +28,9 @@ object UIKitTheme {
 
 /**
  * Базовая тема UI‑кита. Можно расширять для тёмной темы и брендинга.
+ *
+ * Обычно вызывается один раз на уровне экрана/приложения:
+ * `UIKitTheme { ScreenContent() }`
  */
 @Composable
 fun UIKitTheme(

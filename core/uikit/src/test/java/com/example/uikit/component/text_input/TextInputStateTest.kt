@@ -8,6 +8,7 @@ class TextInputStateTest {
     @Test
     fun statesAreDifferentInstances() {
         assertNotEquals(TextInputState.Default, TextInputState.Focused)
+        assertNotEquals(TextInputState.Default, TextInputState.Warning)
         assertNotEquals(TextInputState.Default, TextInputState.Error)
         assertNotEquals(TextInputState.Default, TextInputState.Disabled)
     }

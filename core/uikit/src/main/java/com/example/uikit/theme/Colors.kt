@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Color
  */
 data class UIKitColors(
     val primary: Color,
+    val secondary: Color,
     val textPrimary: Color,
     val textSecondary: Color,
     val error: Color,
@@ -16,12 +17,14 @@ data class UIKitColors(
 )
 
 internal val LightUIKitColors = UIKitColors(
-    primary = Color(0xFF0066FF),
-    textPrimary = Color(0xFF111827),
+    primary = Color(0xFF9470C7),
+    secondary = Color(0xFFBC9DE5),
+    textPrimary = Color(0xFF4C4C52),
     textSecondary = Color(0xFF6B7280),
     error = Color(0xFFDC2626),
-    disabled = Color(0xFF9CA3AF),
-    border = Color(0xFFE5E7EB),
+    disabled = Color(0xFFD0D2D7),
+    // Блекло-сереневый для границ Default и Fill состояний
+    border = Color(0xFFC8CAD0),
     background = Color(0xFFFFFFFF),
 )
 
