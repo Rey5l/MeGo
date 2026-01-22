@@ -24,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
@@ -105,7 +106,9 @@ fun TextInput(
     }
 
     Column(modifier = modifier) {
-        Box(modifier = Modifier.fillMaxWidth()) {
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp)) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -141,6 +144,7 @@ fun TextInput(
                                 Text(
                                     text = placeholderText,
                                     style = UIKitTheme.typography.body.copy(color = UIKitTheme.colors.border),
+
                                 )
                             }
                             innerTextField()
@@ -166,7 +170,7 @@ fun TextInput(
                         .background(UIKitTheme.colors.background)
                         .padding(horizontal = 4.dp),
 
-                    style = UIKitTheme.typography.caption,
+                    style = UIKitTheme.typography.caption.copy(fontWeight = FontWeight.Light),
                     color = labelColor,
                 )
             }

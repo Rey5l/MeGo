@@ -17,7 +17,7 @@ data class UIKitColors(
 )
 
 internal val LightUIKitColors = UIKitColors(
-    primary = Color(0xFF9470C7),
+    primary = Color(0xDC511BE3),
     secondary = Color(0xFFBC9DE5),
     textPrimary = Color(0xFF4C4C52),
     textSecondary = Color(0xFF6B7280),
