@@ -30,29 +30,23 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.uikit.theme.UIKitTheme
-import kotlinx.coroutines.withTimeout
 
 /**
  * Базовый компонент текстового поля UI‑кита.
  *
- * ### Как использовать
- * - **Что импортировать**: `com.example.uikit.component.text_input.TextInput`
- * - **Что ещё понадобится**:
- *   - `com.example.uikit.component.text_input.TextInputState` — если нужно форсировать состояние (Error/Focused)
- *   - `com.example.uikit.component.text_input.TextInputIcon` — если нужны иконки слева/справа
- *   - `com.example.uikit.theme.UIKitTheme` — обычно вы уже оборачиваете экран/превью темой, но компонент и без этого соберётся
+ * ### Параметры
+ * - `value` / `onValueChange`: текущий текст и обработчик изменений
+ * - `label`: лейбл (в Default показывается внутри, в Active — на границе)
+ * - `placeholder`: альтернативный placeholder (если не задан, используется `label`)
+ * - `state`: визуальное состояние (Default/Active/Fill/Error/Disabled)
+ * - `enabled`: доступность поля
+ * - `leftIcon` / `rightIcon`: иконки слева/справа от текста
+ * - `supportingText`: текст под полем (ошибка/подсказка)
  *
- * ### Параметры (коротко)
- * - `value` / `onValueChange`: текущее значение и обработчик изменений.
- * - `label`: “плавающий” лейбл — **показывается на рамке только в фокусе**, как в дизайне.
- * - `placeholder`: текст внутри поля, когда оно пустое и не в фокусе. Если `placeholder == null`, используем `label`.
- * - `state`:
- *   - `Default`: обычное состояние.
- *   - `Focused`: можно форсировать фокус-вид (например, для Preview).
- *   - `Error`: красная рамка/текст (лейбл на рамке не показываем).
- *   - `Disabled`: можно выставить через `enabled=false` (приоритетнее).
- * - `leadingIcon` / `trailingIcon`: composable-иконки слева/справа.
- * - `supportingText`: подпись под полем (ошибка/подсказка/предупреждение).
+ * ### Для частных случаев используйте wrapper'ы:
+ * - `TextInputWithLeftIcon` — только иконка слева
+ * - `TextInputWithRightIcon` — только иконка справа
+ * - `TextInputWithIcons` — обе иконки
  */
 
 @Composable
@@ -63,8 +57,8 @@ fun TextInput(
     placeholder: String? = null,
     state: TextInputState = TextInputState.Default,
     enabled: Boolean = true,
-    leadingIcon: TextInputIcon? = null,
-    trailingIcon: TextInputIcon? = null,
+    leftIcon: TextInputIcon? = null,
+    rightIcon: TextInputIcon? = null,
     supportingText: String? = null,
     modifier: Modifier = Modifier,
     keyboardOptions: KeyboardOptions = KeyboardOptions(
@@ -77,8 +71,7 @@ fun TextInput(
     val interactionSource = remember { MutableInteractionSource() }
     val isFocused = interactionSource.collectIsFocusedAsState().value
 
-    // NOTE: `state` позволяет форсировать визуальное состояние (полезно в превью/дизайн-демо).
-    // В рантайме фокус также определяется автоматически через interactionSource.
+    // Определение визуального состояния: фокус определяется автоматически, state позволяет форсировать
     val visualState = when {
         !enabled -> TextInputState.Disabled
         state is TextInputState.Error -> TextInputState.Error
@@ -95,9 +88,7 @@ fun TextInput(
     val labelColor = labelColor(visualState)
     val textColor = textColor(visualState)
 
-    // Плейсхолдер показываем только когда поле пустое и НЕ в Active/ошибке.
-    // В Default состоянии внутри поля показывается `label` (который потом переходит на границу в Active).
-    // В Error состоянии placeholder не показывается — только введённый текст.
+    // Placeholder: показывается только когда поле пустое и не в Active/Error
     val placeholderText = when {
         value.isNotEmpty() -> null
         visualState == TextInputState.Active -> null
@@ -108,7 +99,7 @@ fun TextInput(
     Column(modifier = modifier) {
         Box(modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp)) {
+            .padding(horizontal = 4.dp, vertical = 8.dp)) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -122,8 +113,8 @@ fun TextInput(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Start,
                 ) {
-                    if (leadingIcon != null) {
-                        leadingIcon.Content()
+                    if (leftIcon != null) {
+                        leftIcon.Content()
                         Spacer(Modifier.width(8.dp))
                     }
 
@@ -140,36 +131,30 @@ fun TextInput(
                             .padding(top = 1.dp),
                         decorationBox = { innerTextField ->
                             if (placeholderText != null) {
-                                // Placeholder всегда светлосерый (border), независимо от цвета границы
                                 Text(
                                     text = placeholderText,
                                     style = UIKitTheme.typography.body.copy(color = UIKitTheme.colors.border),
-
                                 )
                             }
                             innerTextField()
                         },
                     )
 
-                    if (trailingIcon != null) {
+                    if (rightIcon != null) {
                         Spacer(Modifier.width(8.dp))
-                        trailingIcon.Content()
+                        rightIcon.Content()
                     }
                 }
             }
 
-            // Лейбл "врезается" в верхнюю линию рамки за счёт background.
-            // Показываем только в Active состоянии.
+            // Лейбл на границе (показывается только в Active)
             if (label != null && visualState == TextInputState.Active) {
                 Text(
                     text = label,
                     modifier = Modifier
-                        // NOTE: offset подобран под текущие размеры (height=46dp, padding=12dp).
-                        // Если дизайн изменится — регулируем x/y тут.
                         .offset(x = 18.dp, y = (-8).dp)
                         .background(UIKitTheme.colors.background)
                         .padding(horizontal = 4.dp),
-
                     style = UIKitTheme.typography.caption.copy(fontWeight = FontWeight.Light),
                     color = labelColor,
                 )
@@ -189,7 +174,6 @@ fun TextInput(
 
 @Composable
 private fun borderColor(state: TextInputState): Color = when (state) {
-    // Default и Fill: блекло-сереневый (border)
     TextInputState.Default -> UIKitTheme.colors.secondary
     TextInputState.Fill -> UIKitTheme.colors.secondary
     TextInputState.Active -> UIKitTheme.colors.primary
@@ -209,7 +193,6 @@ private fun labelColor(state: TextInputState): Color = when (state) {
 
 @Composable
 private fun textColor(state: TextInputState): Color = when (state) {
-    // Default: серый (border), Fill: почти чёрный (textPrimary), Active: почти чёрный (textPrimary)
     TextInputState.Default -> UIKitTheme.colors.border
     TextInputState.Fill -> UIKitTheme.colors.textPrimary
     TextInputState.Active -> UIKitTheme.colors.textPrimary
@@ -217,3 +200,109 @@ private fun textColor(state: TextInputState): Color = when (state) {
     TextInputState.Disabled -> UIKitTheme.colors.disabled
 }
 
+/**
+ * Поле ввода с иконкой слева.
+ */
+@Composable
+fun TextInputWithLeftIcon(
+    value: String,
+    onValueChange: (String) -> Unit,
+    leftIcon: @Composable () -> Unit,
+    label: String? = null,
+    placeholder: String? = null,
+    state: TextInputState = TextInputState.Default,
+    enabled: Boolean = true,
+    supportingText: String? = null,
+    modifier: Modifier = Modifier,
+    keyboardOptions: KeyboardOptions = KeyboardOptions(
+        capitalization = KeyboardCapitalization.None,
+        autoCorrectEnabled = true,
+        keyboardType = KeyboardType.Text,
+        imeAction = ImeAction.Done,
+    ),
+) {
+    TextInput(
+        value = value,
+        onValueChange = onValueChange,
+        label = label,
+        placeholder = placeholder,
+        state = state,
+        enabled = enabled,
+        leftIcon = TextInputIcon { leftIcon() },
+        supportingText = supportingText,
+        modifier = modifier,
+        keyboardOptions = keyboardOptions,
+    )
+}
+
+/**
+ * Поле ввода с иконкой справа.
+ */
+@Composable
+fun TextInputWithRightIcon(
+    value: String,
+    onValueChange: (String) -> Unit,
+    rightIcon: @Composable () -> Unit,
+    label: String? = null,
+    placeholder: String? = null,
+    state: TextInputState = TextInputState.Default,
+    enabled: Boolean = true,
+    supportingText: String? = null,
+    modifier: Modifier = Modifier,
+    keyboardOptions: KeyboardOptions = KeyboardOptions(
+        capitalization = KeyboardCapitalization.None,
+        autoCorrectEnabled = true,
+        keyboardType = KeyboardType.Text,
+        imeAction = ImeAction.Done,
+    ),
+) {
+    TextInput(
+        value = value,
+        onValueChange = onValueChange,
+        label = label,
+        placeholder = placeholder,
+        state = state,
+        enabled = enabled,
+        rightIcon = TextInputIcon { rightIcon() },
+        supportingText = supportingText,
+        modifier = modifier,
+        keyboardOptions = keyboardOptions,
+    )
+}
+
+/**
+ * Поле ввода с иконками слева и справа.
+ */
+@Composable
+fun TextInputWithIcons(
+    value: String,
+    onValueChange: (String) -> Unit,
+    leftIcon: @Composable () -> Unit,
+    rightIcon: @Composable () -> Unit,
+    label: String? = null,
+    placeholder: String? = null,
+    state: TextInputState = TextInputState.Default,
+    enabled: Boolean = true,
+    supportingText: String? = null,
+    modifier: Modifier = Modifier,
+    keyboardOptions: KeyboardOptions = KeyboardOptions(
+        capitalization = KeyboardCapitalization.None,
+        autoCorrectEnabled = true,
+        keyboardType = KeyboardType.Text,
+        imeAction = ImeAction.Done,
+    ),
+) {
+    TextInput(
+        value = value,
+        onValueChange = onValueChange,
+        label = label,
+        placeholder = placeholder,
+        state = state,
+        enabled = enabled,
+        leftIcon = TextInputIcon { leftIcon() },
+        rightIcon = TextInputIcon { rightIcon() },
+        supportingText = supportingText,
+        modifier = modifier,
+        keyboardOptions = keyboardOptions,
+    )
+}
