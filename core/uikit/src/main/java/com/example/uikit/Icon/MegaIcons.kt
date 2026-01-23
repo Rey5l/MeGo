@@ -10,5 +10,5 @@ object MegaIcons {
     @Composable fun icNotFavorite() = ImageVector.vectorResource(R.drawable.outline_favorite_24)
     @Composable fun icMyLocation() = ImageVector.vectorResource(R.drawable.outline_my_location_24)
     @Composable fun icClock() = ImageVector.vectorResource(R.drawable.outline_nest_clock_farsight_analog_24)
-
+    @Composable fun icHome() = ImageVector.vectorResource(R.drawable.home_outline_24)
 }

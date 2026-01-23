@@ -6,6 +6,7 @@ import androidx.compose.ui.test.hasSetTextAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import com.example.uikit.components.text_input.TextInput
 //import androidx.compose.ui.test.onNode
 import com.example.uikit.theme.UIKitTheme
 import org.junit.Rule

@@ -1,5 +1,6 @@
 package com.example.uikit.component.text_input
 
+import com.example.uikit.components.text_input.TextInputState
 import org.junit.Assert.assertNotEquals
 import org.junit.Test
 

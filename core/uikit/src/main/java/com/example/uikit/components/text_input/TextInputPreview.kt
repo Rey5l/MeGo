@@ -1,4 +1,4 @@
-package com.example.uikit.component.text_input
+package com.example.uikit.components.text_input
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
