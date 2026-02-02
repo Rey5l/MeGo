@@ -25,4 +25,8 @@ object MegoIcons {
         @Composable
         get() = ImageVector.vectorResource(R.drawable.ic_notification)
 
+    // Icon для top bar в feature/auth модуля SignUpScreen экрана
+    val close: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_close)
 }
