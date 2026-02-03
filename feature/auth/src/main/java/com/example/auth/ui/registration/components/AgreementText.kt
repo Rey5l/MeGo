@@ -10,6 +10,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import com.example.uikit.theme.CorporateMeGoPrimary
 import com.example.uikit.theme.MegoFontFamily
+import com.example.uikit.theme.OpacityDark40
 
 @Composable
 fun AgreementText(
@@ -17,13 +18,31 @@ fun AgreementText(
     onPrivacyPolicyClick: () -> Unit,
 ) {
     val annotatedText = buildAnnotatedString {
-        append("Я ознакомился и согласен с ")
+        withStyle(
+            style = SpanStyle(
+                fontFamily = MegoFontFamily,
+                fontWeight = FontWeight.Medium,
+                fontSize = 12.sp,
+                color = OpacityDark40
+            )
+        ) {
+            append("Я ознакомился и согласен с ")
+        }
         pushStringAnnotation(tag = "userAgreement", annotation = "userAgreement")
         withStyle(style = SpanStyle(color = CorporateMeGoPrimary)) {
             append("Пользовательским соглашением")
         }
         pop()
-        append(" и ")
+        withStyle(
+            style = SpanStyle(
+                fontFamily = MegoFontFamily,
+                fontWeight = FontWeight.Medium,
+                fontSize = 12.sp,
+                color = OpacityDark40
+            )
+        ) {
+            append(" и ")
+        }
         pushStringAnnotation(tag = "privacy_policy", annotation = "privacy_policy")
         withStyle(style = SpanStyle(color = CorporateMeGoPrimary)) {
             append("Политикой конфиденциальности")

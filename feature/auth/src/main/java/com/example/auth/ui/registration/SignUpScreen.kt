@@ -75,13 +75,14 @@ fun SignUpScreen(
                 modifier = Modifier.size(24.dp),
             )
             Spacer(modifier = Modifier.height(40.dp))
-            TextInput(
-                value = login,
-                onValueChange = {},
-                label = "Label",
-                modifier = Modifier,
-                placeholder = "Ваш email или номер телефона"
-            )
+            UIKitTheme {
+                TextInput(
+                    value = login,
+                    onValueChange = {},
+                    label = "Ваш email или номер телефона",
+                    modifier = Modifier
+                )
+            }
             Spacer(Modifier.height(16.dp))
             AgreementRow(
                 checked = isAgreementChecked,
