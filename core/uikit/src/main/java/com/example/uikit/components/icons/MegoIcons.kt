@@ -25,4 +25,59 @@ object MegoIcons {
         @Composable
         get() = ImageVector.vectorResource(R.drawable.ic_notification)
 
+    val formatListBulleted: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_format_list_bulleted)
+
+    val drewAbstractOutlineSharp: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_draw_abstract_outline_sharp)
+
+    val familyRestroomSharp: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_family_restroom_sharp)
+
+    val favoriteOutline: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_favorite_outline)
+
+    val hiking: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_hiking)
+
+    val mountainFlagOutline: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_mountain_flag_outline)
+
+    val restaurant: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_restaurant)
+
+    val shoppingBagSpeedOutlineSharp: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_shopping_bag_speed_outline_sharp)
+
+    val theaterComedyOutline: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_theater_comedy_outline)
+
+    val thumpUpOutline: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.material_symbols_thumb_up_outline)
+
+    val translate: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.material_symbols_translate)
+
+
+
+
+
+
+
+
+
+
+
+
 }
