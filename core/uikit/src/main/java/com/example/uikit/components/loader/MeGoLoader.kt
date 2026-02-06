@@ -32,14 +32,12 @@ import kotlinx.coroutines.delay
  *
  * ### Параметры
  *  - "size" - размер компонента загрузки.
- *  - "modifier" - Modifier
  */
 
 @Preview(showBackground = true)
 @Composable
 fun MeGoLoader(
     size: Dp = 109.dp,
-    modifier: Modifier = Modifier
 ) {
 
     var rotationAngle by remember { mutableStateOf(0f) }
@@ -53,10 +51,10 @@ fun MeGoLoader(
 
         }
     }
-    val finalModifier = modifier.then(Modifier.size(size))
 
 
-    Box(modifier = finalModifier.size(size),
+
+    Box(modifier = Modifier.size(size),
         contentAlignment = Alignment.Center){
         Canvas(
             modifier = Modifier.fillMaxSize().padding(4.dp),
