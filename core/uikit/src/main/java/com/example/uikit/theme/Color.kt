@@ -14,3 +14,6 @@ val OpacityDark80 = Color.Black.copy(alpha = 0.8f)
 
 //в фигме указан вот такой #1C1C1ECC, но это синий. На макете #OpacityDark80, но светлее
 val OpacityDark80Lighter = Color.Black.copy(alpha = 0.65f)
+val Green = Color(0xFF34C759)
+
+val BGSecondary = Color(0xFFF2F2F7)
