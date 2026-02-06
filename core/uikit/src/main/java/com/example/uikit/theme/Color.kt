@@ -12,3 +12,6 @@ val OpacityDark40 = Color(0x661C1C1E)
 val ColorRed = Color(0xFFFF3B30)
 
 val OpacityDark80 = Color.Black.copy(alpha = 0.8f)
+val Green = Color(0xFF34C759)
+
+val BGSecondary = Color(0xFFF2F2F7)
