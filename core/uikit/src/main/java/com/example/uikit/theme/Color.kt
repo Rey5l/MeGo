@@ -10,5 +10,7 @@ val OpacityLight60 = Color.White
 // добавил 66 в начало, так как  66 — это прозрачность 40% в шестнадцатеричном виде.
 val OpacityDark40 = Color(0x661C1C1E)
 val ColorRed = Color(0xFFFF3B30)
-
 val OpacityDark80 = Color.Black.copy(alpha = 0.8f)
+
+//в фигме указан вот такой #1C1C1ECC, но это синий. На макете #OpacityDark80, но светлее
+val OpacityDark80Lighter = Color.Black.copy(alpha = 0.65f)
