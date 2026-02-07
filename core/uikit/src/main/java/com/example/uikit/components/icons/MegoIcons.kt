@@ -29,4 +29,8 @@ object MegoIcons {
     val close: ImageVector
         @Composable
         get() = ImageVector.vectorResource(R.drawable.ic_close)
+
+    val logo: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.logo_clicable_area)
 }

@@ -1,5 +1,6 @@
 package com.example.auth.ui.registration
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -68,11 +69,9 @@ fun SignUpScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(56.dp))
-            Icon(
-                imageVector = MegoIcons.close,
+            Image(
+                imageVector = MegoIcons.logo,
                 contentDescription = null,
-                tint = CorporateMeGoPrimary,
-                modifier = Modifier.size(24.dp),
             )
             Spacer(modifier = Modifier.height(40.dp))
             UIKitTheme {
