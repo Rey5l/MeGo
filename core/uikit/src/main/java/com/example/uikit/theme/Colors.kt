@@ -17,14 +17,13 @@ data class UIKitColors(
 )
 
 internal val LightUIKitColors = UIKitColors(
-    primary = Color(0xDC511BE3),
-    secondary = Color(0xFFBC9DE5),
-    textPrimary = Color(0xFF4C4C52),
+    primary = Color(0xFF0066FF),
+    secondary = Color(0xFFBC9DE5),  // Блекло-сереневый для Default/Fill состояний
+    textPrimary = Color(0xFF111827),
     textSecondary = Color(0xFF6B7280),
     error = Color(0xFFDC2626),
-    disabled = Color(0xFFD0D2D7),
-    // Блекло-сереневый для границ Default и Fill состояний
-    border = Color(0xFFC8CAD0),
+    disabled = Color(0xFF9CA3AF),
+    border = Color(0xFFE5E7EB),
     background = Color(0xFFFFFFFF),
 )
 
