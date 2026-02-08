@@ -25,12 +25,7 @@ object MegoIcons {
         @Composable
         get() = ImageVector.vectorResource(R.drawable.ic_notification)
 
-    val icFavorite: ImageVector
-        @Composable
-        get() = ImageVector.vectorResource(R.drawable.baseline_favorite_24)
-    val icNotFavorite: ImageVector
-        @Composable
-        get() = ImageVector.vectorResource(R.drawable.outline_favorite_24)
+
     val icMyLocation: ImageVector
         @Composable
         get() = ImageVector.vectorResource(R.drawable.outline_my_location_24)
@@ -41,4 +36,23 @@ object MegoIcons {
         @Composable
         get() = ImageVector.vectorResource(R.drawable.home_outline_24)
 
+    val star: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.baseline_star_24)
+
+    val favorite: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.baseline_favorite_24)
+
+    val notFavorite: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.outline_favorite_24)
+
+    val delete: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.outline_delete_24)
+
+    val gallery: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_gallery)
 }
