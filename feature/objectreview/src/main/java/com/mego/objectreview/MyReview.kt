@@ -27,8 +27,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.uikit.R
-import com.example.uikit.components.text_input.TextInput
-import com.example.uikit.components.text_input.TextInputState
+import com.example.uikit.component.text_input.TextInput
+import com.example.uikit.component.text_input.TextInputState
 import com.example.uikit.theme.BGSecondary
 import com.example.uikit.theme.CorporateMeGoPrimary
 import com.example.uikit.theme.MegoFontFamily

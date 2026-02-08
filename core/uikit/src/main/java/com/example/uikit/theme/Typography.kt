@@ -25,3 +25,14 @@ internal val DefaultUIKitTypography = UIKitTypography(
     ),
 )
 
+val titleLarge500: TextStyle = TextStyle(
+    fontWeight = FontWeight.W500,
+    fontSize = 20.sp,
+    lineHeight = 25.5.sp,
+)
+val bodyMedium500: TextStyle =
+    TextStyle(
+        fontWeight = FontWeight.W500,
+        fontSize = 14.sp,
+        lineHeight = 17.85.sp,
+    )
