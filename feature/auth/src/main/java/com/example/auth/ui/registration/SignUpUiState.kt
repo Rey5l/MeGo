@@ -8,5 +8,5 @@ data class SignUpUiState(
     val errorText: String? = null
 ) {
     val canSubmit: Boolean
-        get() = login.isNotBlank() && isAgreementChecked && !isLoading && errorText == null
+        get() = login.isNotBlank() && isAgreementChecked && errorText == null
 }

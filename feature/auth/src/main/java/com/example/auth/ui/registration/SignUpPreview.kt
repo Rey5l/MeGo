@@ -50,3 +50,21 @@ fun SignUpPreview_Ready() {
         )
     }
 }
+
+@Preview(name = "SignUp - Loading")
+@Composable
+fun SignUpPreview_Loading() {
+    UIKitTheme {
+        SignUpContent(
+            state = SignUpUiState(
+                login = "test@example.com",
+                isAgreementChecked = true,
+                isLoading = true,
+                errorText = null
+            ),
+            onLoginChange = {},
+            onAgreementCheckedChange = {},
+            onSubmit = {}
+        )
+    }
+}
