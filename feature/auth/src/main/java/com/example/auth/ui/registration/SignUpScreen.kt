@@ -14,33 +14,15 @@ import androidx.compose.ui.tooling.preview.Preview
 fun SignUpScreen(
 
 ) {
-    var state by remember {mutableStateOf(SignUpUiState())}
+    var state by remember { mutableStateOf(SignUpUiState()) }
 
     SignUpContent(
         state = state,
-        onLoginChange = { newValue ->
-            state = state.copy(login = newValue, errorText = null)
-                        },
-        onAgreementCheckedChange = { newValue ->
-            state = state.copy(isAgreementChecked = newValue)
+        onLoginChange = { },
+        onAgreementCheckedChange = {
         },
         onSubmit = {
-            // Заглушка проверки (пока нет бэка)
-            val isValid = looksLikeEmailOrPhone(state.login)
-            state = if (!isValid) {
-                state.copy(errorText = "Проверьте правильность введённых данных!")
-            } else {
-                state.copy(errorText = null)
-            }
+
         }
     )
-}
-
-// Заглушка для валидации
-private fun looksLikeEmailOrPhone(value: String): Boolean {
-    val v = value.trim()
-    val isEmail = android.util.Patterns.EMAIL_ADDRESS.matcher(v).matches()
-    val digits = v.count { it.isDigit() }
-    val isPhone = digits >= 10
-    return isEmail || isPhone
 }

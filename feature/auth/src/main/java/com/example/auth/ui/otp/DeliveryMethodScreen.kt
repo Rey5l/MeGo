@@ -1,5 +1,6 @@
 package com.example.auth.ui.otp
 
+import android.R.attr.fontFamily
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,26 +15,27 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.auth.ui.otp.components.DeliveryTypeRow
 import com.example.auth.ui.otp.components.InfoMessageCode
-import com.example.auth.ui.otp.components.OtpCodeInput
 import com.example.auth.ui.registration.components.AuthTopBar
-import com.example.auth.ui.registration.components.LoadingOverlay
-import com.example.uikit.component.button.ButtonType
-import com.example.uikit.component.button.MeGoButton
 import com.example.uikit.icon.MegoIcons
+import com.example.uikit.theme.MegoFontFamily
+import com.example.uikit.theme.OpacityDark80
 import com.example.uikit.theme.UIKitTheme
 
+@Preview
 @Composable
-fun OtpContent(
-    state: OtpUiState,
-    onCodeChange: (String) -> Unit,
-    onResendClick: () -> Unit,
-    onEditEmail: () -> Unit,
-    onSubmit: () -> Unit,
+fun DeliveryMethodScreen(
+
 ) {
     Scaffold(
         topBar = {
@@ -63,49 +65,21 @@ fun OtpContent(
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(32.dp))
+                Spacer(modifier = Modifier.height(140.5.dp))
                 Image(
                     imageVector = MegoIcons.logo,
                     contentDescription = null,
                 )
                 Spacer(modifier = Modifier.height(40.dp))
-                InfoMessageCode(
-                    state.target,
-                    type = state.type,
-                    state.isValid
+                Text(
+                    text = "Куда выслать код?",
+                    fontFamily = MegoFontFamily,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 18.sp,
+                    color = OpacityDark80
                 )
-                Spacer(Modifier.height(16.dp))
-
-                OtpCodeInput(
-                    code = state.code,
-                    isValid = state.isValid,
-                    onCodeChange = onCodeChange
-                )
-
-                Spacer(Modifier.height(90.dp))
-
-                if (state.timer > 0) {
-                    MeGoButton(
-                        "Отправить код повторно ${state.timer} сек.",
-                        ButtonType.Empty,
-                        enabled = false,
-                        onClick = {})
-                } else {
-                    MeGoButton(
-                        "Отправить код повторно",
-                        ButtonType.Empty,
-                        onClick = { onResendClick() })
-                }
-
-                Spacer(Modifier.height(24.dp))
-
-                MeGoButton(
-                    "Указать другую почту/номер",
-                    ButtonType.Empty,
-                    onClick = { onEditEmail() })
-            }
-            if (state.isLoading) {
-                LoadingOverlay()
+                Spacer(modifier = Modifier.height(16.dp))
+                DeliveryTypeRow()
             }
         }
     }

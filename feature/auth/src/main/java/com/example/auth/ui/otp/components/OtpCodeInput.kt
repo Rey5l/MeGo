@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -21,17 +22,26 @@ import androidx.compose.ui.unit.sp
 import com.example.uikit.icon.MegoIcons
 import com.example.uikit.theme.MegoFontFamily
 import com.example.uikit.theme.OpacityDark80
+import com.example.uikit.theme.roseRed
 
 @Composable
 fun OtpCodeInput(
     code: String,
+    isValid: Boolean,
     onCodeChange: (String) -> Unit,
 ) {
-    Box {
+    Box(
+        contentAlignment = Alignment.Center
+    ) {
         BasicTextField(
             value = code,
-            onValueChange = { if (it.length <= 4) onCodeChange(it) },
+            onValueChange = {
+                if (it.length <= 4 && it.all { char -> char.isDigit() }) {
+                    onCodeChange(it)
+                }
+            },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            modifier = Modifier.matchParentSize().alpha(0f),
             decorationBox = {}
         )
 
@@ -54,7 +64,7 @@ fun OtpCodeInput(
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
                             fontFamily = MegoFontFamily,
-                            color = OpacityDark80
+                            color = if (isValid) OpacityDark80 else roseRed
                         )
                     }
                     else {
