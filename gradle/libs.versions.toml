@@ -21,7 +21,6 @@ coil = "2.6.0"
 runtimeVersion = "1.10.2"
 uiGraphics = "1.10.2"
 jetbrainsKotlinJvm = "2.0.21"
-runtimeVersion = "1.10.2"
 foundationVersion = "1.10.2"
 
 [libraries]
@@ -54,7 +53,6 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", vers
 androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "foundationLayout" }
 androidx-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtimeVersion" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
-androidx-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtimeVersion" }
 androidx-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundationVersion" }
 
 [plugins]

@@ -36,75 +36,33 @@ import com.example.uikit.theme.UIKitTheme
 fun SignUpScreen(
 
 ) {
-    var isAgreementChecked by remember { mutableStateOf(false) }
-    var login by remember { mutableStateOf("") }
-    Scaffold(
-        topBar = {
-            Column {
-                AuthTopBar(
-                    title = "Регистрация",
-                    onClose = {}
-                )
-                HorizontalDivider(
-                    modifier = Modifier.fillMaxWidth(),
-                    thickness = 1.dp
-                )
+    var state by remember {mutableStateOf(SignUpUiState())}
+
+    SignUpContent(
+        state = state,
+        onLoginChange = { newValue ->
+            state = state.copy(login = newValue, errorText = null)
+                        },
+        onAgreementCheckedChange = { newValue ->
+            state = state.copy(isAgreementChecked = newValue)
+        },
+        onSubmit = {
+            // Заглушка проверки (пока нет бэка)
+            val isValid = looksLikeEmailOrPhone(state.login)
+            state = if (!isValid) {
+                state.copy(errorText = "Проверьте правильность введённых данных!")
+            } else {
+                state.copy(errorText = null)
             }
         }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .padding(paddingValues)
-                .fillMaxSize()
-                .imePadding() // для клавиатуры
-                .navigationBarsPadding() // для системных кнопок Android
-                .padding(horizontal = 16.dp)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Spacer(modifier = Modifier.height(56.dp))
-            Image(
-                imageVector = MegoIcons.logo,
-                contentDescription = null,
-            )
-            Spacer(modifier = Modifier.height(40.dp))
-            UIKitTheme {
-                TextInput(
-                    value = login,
-                    onValueChange = {},
-                    label = "Ваш email или номер телефона",
-                    modifier = Modifier
-                )
-            }
-            // Когда неправильно введена почта или пароль
-            //         TextInput(
-            //            value = login,
-            //            onValueChange = {},
-            //            label = "Label",
-            //            state = TextInputState.Error,
-            //            modifier = Modifier,
-            //        )
-            Spacer(Modifier.height(16.dp))
-            AgreementRow(
-                checked = isAgreementChecked,
-                onCheckedChange = { isAgreementChecked = it }
-            )
-            Spacer(Modifier.height(18.dp))
-            MeGoButton(
-                "Отправить код",
-                ButtonType.Empty,
-                onClick = {},
-                size = ButtonSize.Large,
-                enabled = false
-            )
-// Когда все ок введено
-//            MeGoButton(
-//                "Отправить код",
-//                ButtonType.Fill,
-//                onClick = {},
-//                size = ButtonSize.Large,
-//                modifier = Modifier.fillMaxWidth(),
-//            )
-        }
-    }
+    )
+}
+
+// Заглушка для валидации
+private fun looksLikeEmailOrPhone(value: String): Boolean {
+    val v = value.trim()
+    val isEmail = android.util.Patterns.EMAIL_ADDRESS.matcher(v).matches()
+    val digits = v.count { it.isDigit() }
+    val isPhone = digits >= 10
+    return isEmail || isPhone
 }

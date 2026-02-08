@@ -6,15 +6,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.uikit.components.icons.MegoIcons
+import com.example.uikit.icon.MegoIcons
 import com.example.uikit.theme.CorporateMeGoPrimary
 import com.example.uikit.theme.MegoFontFamily
+import com.example.uikit.theme.UIKitTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -37,6 +39,9 @@ fun AuthTopBar(
                 modifier = Modifier
             )
         },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = UIKitTheme.colors.background,
+        )
     )
 }
 
