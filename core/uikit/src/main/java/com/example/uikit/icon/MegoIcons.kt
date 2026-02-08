@@ -1,4 +1,4 @@
-package com.example.uikit.components.icons
+package com.example.uikit.icon
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -25,20 +25,20 @@ object MegoIcons {
         @Composable
         get() = ImageVector.vectorResource(R.drawable.ic_notification)
 
-    val star: ImageVector
-        @Composable
-        get() = ImageVector.vectorResource(R.drawable.baseline_star_24)
-
-    val favorite: ImageVector
+    val icFavorite: ImageVector
         @Composable
         get() = ImageVector.vectorResource(R.drawable.baseline_favorite_24)
-
-    val notFavorite: ImageVector
+    val icNotFavorite: ImageVector
         @Composable
         get() = ImageVector.vectorResource(R.drawable.outline_favorite_24)
-
-    val delete: ImageVector
+    val icMyLocation: ImageVector
         @Composable
-        get() = ImageVector.vectorResource(R.drawable.outline_delete_24)
+        get() = ImageVector.vectorResource(R.drawable.outline_my_location_24)
+    val icClock: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.outline_nest_clock_farsight_analog_24)
+    val icHome: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.home_outline_24)
 
 }
