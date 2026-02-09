@@ -10,10 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.uikit.component.buttons.button.ButtonSize
-import com.example.uikit.component.buttons.button.ButtonType
-import com.example.uikit.component.buttons.button.IconPosition
-import com.example.uikit.component.buttons.button.MeGoButton
+import com.example.uikit.component.button.ButtonSize
+import com.example.uikit.component.button.ButtonType
+import com.example.uikit.component.button.IconPosition
+import com.example.uikit.component.button.MeGoButton
 import com.example.uikit.theme.UIKitTheme
 
 @Preview
