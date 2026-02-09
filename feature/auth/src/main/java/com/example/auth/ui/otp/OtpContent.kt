@@ -33,7 +33,7 @@ fun OtpContent(
     onCodeChange: (String) -> Unit,
     onResendClick: () -> Unit,
     onEditEmail: () -> Unit,
-    onSubmit: () -> Unit,
+    onSubmit: () -> Unit, // когда все ок
 ) {
     Scaffold(
         topBar = {

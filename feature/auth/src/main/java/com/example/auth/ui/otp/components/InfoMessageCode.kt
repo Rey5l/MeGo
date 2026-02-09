@@ -1,6 +1,5 @@
 package com.example.auth.ui.otp.components
 
-import android.R.attr.fontFamily
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.SpanStyle
@@ -18,7 +17,7 @@ import com.example.uikit.theme.roseRed
 @Composable
 fun InfoMessageCode(
     value: String,
-    type: OtpType = OtpType.EMAIL,
+    type: OtpType,
     isValid: Boolean = true,
 ) {
     if (isValid) {
@@ -33,8 +32,10 @@ fun InfoMessageCode(
                     )
                 ) {
                     when (type) {
-                        OtpType.EMAIL -> append("На почту ")
-                        OtpType.PHONE -> append("На номер ")
+                        OtpType.Email -> append("На почту ")
+                        OtpType.Phone.WhatsApp -> append("На номер ")
+                        OtpType.Phone.Telegram -> append("На номер ")
+                        OtpType.Phone.Sms -> append("На номер ")
                     }
                 }
                 withStyle(
@@ -46,6 +47,21 @@ fun InfoMessageCode(
                     )
                 ) {
                     append(value)
+                }
+                withStyle(
+                    style = SpanStyle(
+                        fontFamily = MegoFontFamily,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 18.sp,
+                        color = OpacityDark80
+                    )
+                ) {
+                    when (type) {
+                        OtpType.Phone.WhatsApp -> append(" в WhatsApp")
+                        OtpType.Phone.Telegram -> append(" в Telegram")
+                        OtpType.Phone.Sms -> append(" в SMS")
+                        else -> {}
+                    }
                 }
                 withStyle(
                     style = SpanStyle(

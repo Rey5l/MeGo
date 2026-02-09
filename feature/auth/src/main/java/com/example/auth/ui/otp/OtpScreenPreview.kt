@@ -15,7 +15,7 @@ fun OtpScreenPreviewEmail() {
     UIKitTheme {
         OtpContent(
             state = OtpUiState(
-                type = OtpType.EMAIL,
+                type = OtpType.Email,
                 target = "abc@mail.su",
                 code = code,
                 timer = 59
@@ -34,7 +34,7 @@ fun OtpScreenPreviewEmail_Loading() {
     UIKitTheme {
         OtpContent(
             state = OtpUiState(
-                type = OtpType.EMAIL,
+                type = OtpType.Email,
                 target = "abc@mail.su",
                 code = "8888",
                 timer = 59,
@@ -54,7 +54,7 @@ fun OtpScreenPreviewEmail_WrongInput() {
     UIKitTheme {
         OtpContent(
             state = OtpUiState(
-                type = OtpType.EMAIL,
+                type = OtpType.Email,
                 target = "abc@mail.su",
                 code = "8888",
                 timer = 0,
@@ -71,11 +71,49 @@ fun OtpScreenPreviewEmail_WrongInput() {
 
 @Preview(showBackground = true)
 @Composable
-fun OtpScreenPreviewPhone() {
+fun OtpScreenPreviewPhoneTelegram() {
     UIKitTheme {
         OtpContent(
             state = OtpUiState(
-                type = OtpType.PHONE,
+                type = OtpType.Phone.Telegram,
+                target = "+7 (999) 123-45-67",
+                code = "88",
+                timer = 59
+            ),
+            onCodeChange = {},
+            onResendClick = {},
+            onEditEmail = {},
+            onSubmit = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OtpScreenPreviewPhoneWhatsApp() {
+    UIKitTheme {
+        OtpContent(
+            state = OtpUiState(
+                type = OtpType.Phone.WhatsApp,
+                target = "+7 (999) 123-45-67",
+                code = "88",
+                timer = 59
+            ),
+            onCodeChange = {},
+            onResendClick = {},
+            onEditEmail = {},
+            onSubmit = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OtpScreenPreviewPhoneSms() {
+    UIKitTheme {
+        OtpContent(
+            state = OtpUiState(
+                type = OtpType.Phone.Sms,
                 target = "+7 (999) 123-45-67",
                 code = "88",
                 timer = 59
@@ -94,7 +132,7 @@ fun OtpScreenPreviewPhone_Loading() {
     UIKitTheme {
         OtpContent(
             state = OtpUiState(
-                type = OtpType.PHONE,
+                type = OtpType.Phone.Telegram,
                 target = "+7 (999) 123-45-67",
                 code = "8888",
                 timer = 59,
@@ -114,7 +152,7 @@ fun OtpScreenPreviewPhone_WrongInput() {
     UIKitTheme {
         OtpContent(
             state = OtpUiState(
-                type = OtpType.PHONE,
+                type = OtpType.Phone.WhatsApp,
                 target = "+7 (999) 123-45-67",
                 code = "8888",
                 timer = 0,

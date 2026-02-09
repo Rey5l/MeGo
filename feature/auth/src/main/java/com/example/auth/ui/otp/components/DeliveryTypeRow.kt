@@ -1,5 +1,7 @@
 package com.example.auth.ui.otp.components
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
@@ -13,32 +15,37 @@ import com.example.uikit.icon.MegoIcons
 import com.example.uikit.theme.OpacityDark80
 import com.example.uikit.theme.opacityDark60
 
-@Preview
 @Composable
 fun DeliveryTypeRow(
-
+    onTgLogoClick: () -> Unit,
+    onWpLogoClick: () -> Unit,
+    onSmsLogoClick: () -> Unit
 ) {
     Row(
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(30.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(
-            imageVector = MegoIcons.icSms,
-            contentDescription = null,
-            tint = opacityDark60,
-            modifier = Modifier.size(28.dp)
+        Image(
+            imageVector = MegoIcons.icTg,
+            contentDescription = "Tg logo",
+            modifier = Modifier.clickable {
+                onTgLogoClick()
+            }
+        )
+        Image(
+            imageVector = MegoIcons.icWp,
+            contentDescription = "WhatsApp logo",
+            modifier = Modifier.clickable {
+                onWpLogoClick()
+            }
         )
         Icon(
             imageVector = MegoIcons.icSms,
-            contentDescription = null,
+            contentDescription = "Sms logo",
             tint = opacityDark60,
-            modifier = Modifier.size(28.dp)
-        )
-        Icon(
-            imageVector = MegoIcons.icSms,
-            contentDescription = null,
-            tint = opacityDark60,
-            modifier = Modifier.size(28.dp)
+            modifier = Modifier.size(28.dp).clickable {
+                onSmsLogoClick()
+            }
         )
     }
 }

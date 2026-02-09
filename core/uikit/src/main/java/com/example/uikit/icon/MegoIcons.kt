@@ -41,6 +41,14 @@ object MegoIcons {
         @Composable
         get() = ImageVector.vectorResource(R.drawable.sms_logo)
 
+    val icTg: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_logo_tg)
+
+    val icWp: ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.ic_logo_wp)
+
     val icMyLocation: ImageVector
         @Composable
         get() = ImageVector.vectorResource(R.drawable.outline_my_location_24)

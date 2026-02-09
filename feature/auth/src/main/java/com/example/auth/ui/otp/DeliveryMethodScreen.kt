@@ -1,6 +1,5 @@
 package com.example.auth.ui.otp
 
-import android.R.attr.fontFamily
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,13 +18,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.auth.ui.otp.components.DeliveryTypeRow
-import com.example.auth.ui.otp.components.InfoMessageCode
 import com.example.auth.ui.registration.components.AuthTopBar
 import com.example.uikit.icon.MegoIcons
 import com.example.uikit.theme.MegoFontFamily
@@ -79,7 +76,11 @@ fun DeliveryMethodScreen(
                     color = OpacityDark80
                 )
                 Spacer(modifier = Modifier.height(16.dp))
-                DeliveryTypeRow()
+                DeliveryTypeRow(
+                    onTgLogoClick = {  },
+                    onWpLogoClick = {  },
+                    onSmsLogoClick = {  }
+                )
             }
         }
     }

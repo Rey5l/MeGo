@@ -2,7 +2,7 @@ package com.example.auth.ui.otp
 
 
 data class OtpUiState(
-    val type: OtpType = OtpType.EMAIL,
+    val type: OtpType = OtpType.Email,
     val target: String = "",
     val code: String = "",
     val timer: Int = 60,
@@ -10,6 +10,12 @@ data class OtpUiState(
     val isValid: Boolean = true
 )
 
-enum class OtpType {
-    EMAIL, PHONE
+sealed class OtpType {
+    data object Email: OtpType()
+
+    sealed class Phone: OtpType() {
+        data object Sms: Phone()
+        data object Telegram: Phone()
+        data object WhatsApp: Phone()
+    }
 }

@@ -35,8 +35,8 @@ fun AgreementRow(
         )
         Spacer(Modifier.width(8.dp))
         AgreementText(
-            onUserAgreementClick = { /*TODO*/ },
-            onPrivacyPolicyClick = { /*TODO*/ }
+            onUserAgreementClick = {  },
+            onPrivacyPolicyClick = {  }
         )
     }
 }
