@@ -1,6 +1,7 @@
 package com.example.catalog.landmark
 
 
+import com.example.catalog.compose_model.LandmarkInfoTabDVO
 import kotlinx.collections.immutable.ImmutableList
 import com.example.domain.model.feedback.Rating
 import com.example.domain.model.landmark.LandMark
@@ -25,4 +26,5 @@ data class LandMarkViewState(
     val isLinkHighlighted: Boolean = false,
     val isWebSiteVisible: Boolean = false,
     val isWebViewMegoVisible: Boolean = false,
+    val selectedTab: LandmarkInfoTabDVO = LandmarkInfoTabDVO.Description,
 )
