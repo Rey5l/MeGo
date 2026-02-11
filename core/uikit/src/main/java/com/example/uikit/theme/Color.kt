@@ -26,3 +26,7 @@ val roseRed = Color(0xFFFF2D55)
 val opacityDark60 = Color(0xFF1C1C1E).copy(alpha = 0.6f)
 val opacityDark20 = Color(0xFF1C1C1E).copy(alpha = 0.2f)
 val black = Color(0xFF000000)
+val megoOpacity = Color(0xFF5856D6).copy(alpha = 0.6f)
+
+    val blue = Color(0xFF007AFF)
+val megoPrimary = Color(0xFF5856D6)

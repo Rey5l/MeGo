@@ -9,6 +9,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.catalog.landmark.composables.LandmarkHeadersRow
 import com.example.catalog.landmark.composables.LandmarkTopBar
 import com.example.uikit.component.common.GalleryImages
 import com.example.uikit.theme.bgSecondary
@@ -52,6 +53,13 @@ fun LandMarkDetailsScreenContent(
             ) {
                 GalleryImages(images = viewState.landMark.images.toImmutableList())
 
+
+                LandmarkHeadersRow(
+                    selectedTab = viewState.selectedTab,
+                    onSelectTab = { pickedTab ->
+                        uiEvent(LandMarkUiEvent.LandmarkInfoTabSelect(pickedTab))
+                    },
+                )
             }
         }
 
