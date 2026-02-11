@@ -24,30 +24,7 @@ object MegoIcons {
     val notification: ImageVector
         @Composable
         get() = ImageVector.vectorResource(R.drawable.ic_notification)
-    // Icon для top bar в feature/auth модуля SignUpScreen экрана
-    val close: ImageVector
-        @Composable
-        get() = ImageVector.vectorResource(R.drawable.ic_close)
 
-    val logo: ImageVector
-    @Composable
-    get() = ImageVector.vectorResource(R.drawable.logo_clicable_area)
-
-    val radioButtonUnchecked: ImageVector
-        @Composable
-        get() = ImageVector.vectorResource(R.drawable.radio_button_unchecked)
-
-    val icSms: ImageVector
-        @Composable
-        get() = ImageVector.vectorResource(R.drawable.sms_logo)
-
-    val icTg: ImageVector
-        @Composable
-        get() = ImageVector.vectorResource(R.drawable.ic_logo_tg)
-
-    val icWp: ImageVector
-        @Composable
-        get() = ImageVector.vectorResource(R.drawable.ic_logo_wp)
 
     val icMyLocation: ImageVector
         @Composable
