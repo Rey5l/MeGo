@@ -16,3 +16,7 @@ val MegoFontFamily = FontFamily(
     Font(R.font.onest_extrabold, FontWeight.ExtraBold),
     Font(R.font.onest_black, FontWeight.Black),
 )
+val medium: FontFamily =
+    FontFamily(
+        Font(R.font.onest_medium),
+    )
