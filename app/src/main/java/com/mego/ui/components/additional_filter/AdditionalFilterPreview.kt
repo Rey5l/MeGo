@@ -2,10 +2,9 @@ package com.mego.ui.components.additional_filter
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.uikit.components.icons.MegoIcons
+import com.example.uikit.icon.MegoIcons
 import com.example.uikit.theme.UIKitTheme
-import com.mego.ui.components.additional_filter.AdditionalFilters
-import com.mego.ui.components.additional_filter.AdditionalFilterItem
+
 
 @Composable
 private fun sampleFilters(): List<AdditionalFilterItem> = listOf(
