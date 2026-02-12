@@ -1,4 +1,4 @@
-package com.mego.ui.components.additional_filter
+package com.example.uikit.component.additional_filter
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

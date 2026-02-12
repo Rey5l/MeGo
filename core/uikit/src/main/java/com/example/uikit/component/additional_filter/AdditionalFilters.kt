@@ -1,4 +1,4 @@
-package com.mego.ui.components.additional_filter
+package com.example.uikit.component.additional_filter
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -37,14 +37,14 @@ import com.example.uikit.theme.UIKitTheme
  * AdditionalFilters(
  *     items = filters,
  *     onItemClick = { filterId ->
- *         selectedFilterId = filterId  // Обновляем состояние
- *         // Здесь твоя логика фильтрации
+ *         selectedFilterId = filterId
+ *         // Здесь логика фильтрации
  *     }
  * )
  * ```
  *
  * ### Подключение к кнопкам:
- * При клике на любой фильтр вызывается `onItemClick(filterId)`.
+ * При клике на фильтр вызывается `onItemClick(filterId)`.
  * В обработчике обнови состояние выбранного фильтра и примени фильтрацию.
  *
  * @param items Список фильтров для отображения
@@ -56,15 +56,15 @@ fun AdditionalFilters(
     onItemClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    LazyRow (
+    LazyRow(
         horizontalArrangement = Arrangement.spacedBy(20.dp),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         modifier = modifier
     ) {
-        items(items){item ->
+        items(items) { item ->
             AdditionalFilterItemView(
                 item = item,
-                onClick = {onItemClick(item.id)}
+                onClick = { onItemClick(item.id) }
             )
         }
     }
@@ -75,20 +75,20 @@ private fun AdditionalFilterItemView(
     item: AdditionalFilterItem,
     onClick: () -> Unit
 ) {
-    Column (
+    Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.clickable{ onClick() }
+        modifier = Modifier.clickable { onClick() }
     ) {
         Icon(
             imageVector = item.icon,
             contentDescription = item.label,
             modifier = Modifier
-                .padding(1.dp)  // Figma
-                .size(24.dp),  // Figma
+                .padding(1.dp)
+                .size(24.dp),
             tint = if (item.isSelected) {
-                UIKitTheme.colors.primary  // сиреневый для выбранного
+                UIKitTheme.colors.primary
             } else {
-                UIKitTheme.colors.textSecondary  // серый для невыбранного
+                UIKitTheme.colors.textSecondary
             }
         )
 
@@ -105,7 +105,9 @@ private fun AdditionalFilterItemView(
             ),
             color = if (item.isSelected) {
                 UIKitTheme.colors.primary
-            } else UIKitTheme.colors.textSecondary
+            } else {
+                UIKitTheme.colors.textSecondary
+            }
         )
     }
 }

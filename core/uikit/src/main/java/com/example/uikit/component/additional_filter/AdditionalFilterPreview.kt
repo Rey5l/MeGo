@@ -1,10 +1,9 @@
-package com.mego.ui.components.additional_filter
+package com.example.uikit.component.additional_filter
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.uikit.icon.MegoIcons
 import com.example.uikit.theme.UIKitTheme
-
 
 @Composable
 private fun sampleFilters(): List<AdditionalFilterItem> = listOf(
@@ -76,7 +75,7 @@ private fun sampleFilters(): List<AdditionalFilterItem> = listOf(
     ),
 )
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun AdditionalFiltersPreview() {
     UIKitTheme {
@@ -86,4 +85,3 @@ private fun AdditionalFiltersPreview() {
         )
     }
 }
-
