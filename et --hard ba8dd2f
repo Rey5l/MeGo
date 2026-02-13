@@ -1,0 +1,38 @@
+[33m0d1f6dd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/auth_screen[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m HEAD@{0}: pull origin develop: Fast-forward
+[33mba8dd2f[m[33m ([m[1;31morigin/feature/auth_screen[m[33m)[m HEAD@{1}: checkout: moving from develop to feature/auth_screen
+[33m0d1f6dd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/auth_screen[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m HEAD@{2}: pull: Fast-forward
+[33meff053f[m HEAD@{3}: checkout: moving from feature/auth_screen to develop
+[33mba8dd2f[m[33m ([m[1;31morigin/feature/auth_screen[m[33m)[m HEAD@{4}: checkout: moving from develop to feature/auth_screen
+[33meff053f[m HEAD@{5}: checkout: moving from feature/auth_screen to develop
+[33mba8dd2f[m[33m ([m[1;31morigin/feature/auth_screen[m[33m)[m HEAD@{6}: commit: feature/auth_screen vers 1.0
+[33mb705df6[m HEAD@{7}: commit: Done with Otp, and states + phone login
+[33mdb81b21[m HEAD@{8}: commit: Added Otp screen and other otp content, added icon circle for otp, done with Screen_14, Screen_15, Screen_17
+[33m5feab20[m HEAD@{9}: commit: Added state-machine, separate SignUpScreen and SignUpContent, added Preview
+[33mc7c6561[m HEAD@{10}: commit (merge): Update SignUpScreen
+[33ma9f128d[m HEAD@{11}: commit (merge): Merge branch 'develop' of https://github.com/Rey5l/MeGo into feature/auth_screen
+[33mbcd1a50[m HEAD@{12}: commit: Some changes #2
+[33m9945cdb[m HEAD@{13}: pull origin develop: Merge made by the 'ort' strategy.
+[33m8ce5667[m HEAD@{14}: reset: moving to HEAD
+[33m8ce5667[m HEAD@{15}: pull origin develop: updating HEAD
+[33m8ce5667[m HEAD@{16}: checkout: moving from develop to feature/auth_screen
+[33meff053f[m HEAD@{17}: checkout: moving from feature/auth_screen to develop
+[33m8ce5667[m HEAD@{18}: checkout: moving from develop to feature/auth_screen
+[33meff053f[m HEAD@{19}: checkout: moving from feature/auth_screen to develop
+[33m8ce5667[m HEAD@{20}: commit: Some changes
+[33m5a356ff[m HEAD@{21}: commit: feat(auth): first version of SignUp screen
+[33m9bfe1a5[m HEAD@{22}: commit: feat(auth): add SignUp screen, AuthTopBar and module configuration
+[33meff053f[m HEAD@{23}: checkout: moving from develop to feature/auth_screen
+[33meff053f[m HEAD@{24}: checkout: moving from develop to develop
+[33meff053f[m HEAD@{25}: checkout: moving from develop to develop
+[33meff053f[m HEAD@{26}: checkout: moving from develop to develop
+[33meff053f[m HEAD@{27}: checkout: moving from develop to develop
+[33meff053f[m HEAD@{28}: pull origin develop: Fast-forward
+[33m4df1abc[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{29}: checkout: moving from feature/button to develop
+[33m0732340[m[33m ([m[1;31morigin/feature/button[m[33m, [m[1;32mfeature/button[m[33m)[m HEAD@{30}: commit: Add base Button components with icon and update padding logic, add home icon
+[33m6d24fe0[m HEAD@{31}: pull origin develop: Fast-forward
+[33m7fe8061[m HEAD@{32}: pull origin develop: Fast-forward
+[33meb50ef3[m HEAD@{33}: pull origin develop: Fast-forward
+[33m6bc9a05[m HEAD@{34}: commit: Add base Button Component
+[33m4df1abc[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{35}: checkout: moving from develop to feature/button
+[33m4df1abc[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{36}: checkout: moving from master to develop
+[33m4df1abc[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{37}: clone: from https://github.com/Rey5l/MeGo.git
