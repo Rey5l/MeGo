@@ -55,4 +55,12 @@ object MegoIcons {
     val gallery: ImageVector
         @Composable
         get() = ImageVector.vectorResource(R.drawable.ic_gallery)
+
+    val interests : ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.outline_interests_24)
+
+    val translate : ImageVector
+        @Composable
+        get() = ImageVector.vectorResource(R.drawable.outline_translate_24)
 }

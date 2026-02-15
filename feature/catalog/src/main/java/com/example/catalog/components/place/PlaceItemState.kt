@@ -1,4 +1,4 @@
-package com.example.uikit.component.place
+package com.example.catalog.components.place
 
 
 /**

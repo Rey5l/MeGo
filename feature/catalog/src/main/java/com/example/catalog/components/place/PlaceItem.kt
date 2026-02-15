@@ -1,5 +1,6 @@
-package com.example.uikit.component.place
+package com.example.catalog.components.place
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.example.uikit.component.loader.MeGoLoader
+import com.example.uikit.theme.UIKitTheme
 
 /**
  * PlaceItem.
@@ -35,10 +37,11 @@ import com.example.uikit.component.loader.MeGoLoader
 @Composable
 fun PlaceItem(
     state: PlaceItemState,
+    modifier: Modifier = Modifier,
     onFavoriteClick : () -> Unit = {},
     onDeleteClick: () -> Unit = {},
     onActionClick: () -> Unit = {},
-    modifier: Modifier = Modifier
+
 ) {
     when{
         state.data != null -> {
@@ -49,7 +52,7 @@ fun PlaceItem(
                 onDeleteClick = { onDeleteClick() },
                 onActionClick = { onActionClick() },
                 modifier = modifier
-                )
+            )
         }
         else -> {
             Card(
@@ -60,7 +63,7 @@ fun PlaceItem(
                     .clip(RoundedCornerShape(4.dp))
             ) {
                 Box(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize().background(UIKitTheme.colors.background),
                     contentAlignment = Alignment.Center
                 ) {
                     MeGoLoader()

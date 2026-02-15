@@ -21,15 +21,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.uikit.component.button.LikeButton
 import com.example.uikit.component.topbar.TopBarButton
 import com.example.uikit.icon.MegoIcons
+import com.example.uikit.theme.MegoFontFamily
 import com.example.uikit.theme.OpacityDark80
 import com.example.uikit.theme.bgPrimary
 import com.example.uikit.theme.bgSecondary
-import com.example.uikit.theme.medium
 import com.example.uikit.theme.opacityDark20
 import com.example.uikit.theme.titleLarge500
 
@@ -73,7 +74,8 @@ fun LandmarkTopBar(
                 text = " ",
                 color = OpacityDark80,
                 style = titleLarge500,
-                fontFamily = medium,
+                fontFamily = MegoFontFamily,
+                fontWeight = FontWeight.Medium
             )
             if (showLikeButton) {
                 LikeButton(

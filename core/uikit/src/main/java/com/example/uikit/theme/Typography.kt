@@ -36,3 +36,27 @@ val bodyMedium500: TextStyle =
         fontSize = 14.sp,
         lineHeight = 17.85.sp,
     )
+val bodyLarge500: TextStyle =
+    TextStyle(
+        fontWeight = FontWeight.W500,
+        fontSize = 16.sp,
+        lineHeight = 20.4.sp,
+    )
+val labelMedium400: TextStyle =
+    TextStyle(
+        fontWeight = FontWeight.W400,
+        fontSize = 12.sp,
+        lineHeight = 15.3.sp,
+    )
+val bodyMedium400: TextStyle =
+    TextStyle(
+        fontWeight = FontWeight.W400,
+        fontSize = 14.sp,
+        lineHeight = 17.85.sp,
+    )
+val bodyLarge600: TextStyle =
+    TextStyle(
+        fontWeight = FontWeight.W600,
+        fontSize = 16.sp,
+        lineHeight = 20.4.sp,
+    )

@@ -14,8 +14,6 @@ import androidx.compose.ui.unit.Dp
 import com.example.uikit.R
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
-import kotlin.collections.get
-
 @Composable
 fun ProgressBar(
     iconSize: Dp,

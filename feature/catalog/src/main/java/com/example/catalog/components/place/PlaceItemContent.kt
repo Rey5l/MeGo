@@ -1,4 +1,4 @@
-package com.example.uikit.component.place
+package com.example.catalog.components.place
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,27 +21,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.uikit.R
 import com.example.uikit.component.button.ButtonType
 import com.example.uikit.component.button.IconPosition
+import com.example.uikit.component.button.LikeButton
 import com.example.uikit.component.button.MeGoButton
+import com.example.uikit.component.place.AddressForPlaceItem
+import com.example.uikit.component.place.TextNameForPlaceItem
 import com.example.uikit.icon.MegoIcons
-import com.example.uikit.theme.ColorRed
 import com.example.uikit.theme.CorporateMeGoPrimary
 import com.example.uikit.theme.MegoFontFamily
-import com.example.uikit.theme.OpacityDark40
 import com.example.uikit.theme.OpacityDark80
-import com.example.uikit.theme.OpacityDark80Lighter
 import com.example.uikit.theme.OpacityLight60
+import com.example.uikit.theme.UIKitTheme
 
 /**
  * PlaceItemContent.
@@ -66,7 +63,7 @@ fun PlaceItemContent(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(OpacityLight60),
+                .background(UIKitTheme.colors.background),
 
 
             ) {
@@ -120,8 +117,8 @@ fun PlaceItemContent(
                         }
 
                         LikeButton(
-                            onFavoriteClick = onFavoriteClick,
-                            isFavorite = data.isFavorite,
+                            onClick = { onFavoriteClick() },
+                            isLiked = data.isFavorite,
                             modifier = Modifier
                                 .align(Alignment.TopEnd)
                                 .offset(y = (-6).dp)
@@ -165,11 +162,10 @@ fun PlaceItemContent(
                         }
 
                         LikeButton(
-                            onFavoriteClick = onFavoriteClick,
-                            isFavorite = data.isFavorite,
+                            onClick = { onFavoriteClick() },
+                            isLiked = data.isFavorite,
                             modifier = Modifier
                                 .align(Alignment.TopEnd)
-                                .padding(bottom = 8.dp)
                                 .offset(y = (-6).dp)
                         )
                     }
@@ -195,8 +191,8 @@ fun PlaceItemContent(
                         }
 
                         LikeButton(
-                            onFavoriteClick = onFavoriteClick,
-                            isFavorite = data.isFavorite,
+                            onClick = { onFavoriteClick() },
+                            isLiked = data.isFavorite,
                             modifier = Modifier
                                 .align(Alignment.TopEnd)
                                 .offset(y = (-6).dp)
@@ -245,11 +241,10 @@ fun PlaceItemContent(
                             }
                         }
                         LikeButton(
-                            onFavoriteClick = onFavoriteClick,
-                            isFavorite = data.isFavorite,
+                            onClick = { onFavoriteClick() },
+                            isLiked = data.isFavorite,
                             modifier = Modifier
                                 .align(Alignment.TopEnd)
-                                .padding(bottom = 8.dp)
                                 .offset(y = (-6).dp)
                         )
                         IconButton(onClick = onDeleteClick, Modifier.align(Alignment.BottomEnd)) {
@@ -303,8 +298,8 @@ fun PlaceItemContent(
                         }
 
                         LikeButton(
-                            onFavoriteClick = onFavoriteClick,
-                            isFavorite = data.isFavorite,
+                            onClick = { onFavoriteClick() },
+                            isLiked = data.isFavorite,
                             modifier = Modifier
                                 .align(Alignment.TopEnd)
                                 .offset(y = (-6).dp)
@@ -318,65 +313,3 @@ fun PlaceItemContent(
     }
 }
 
-
-@Composable
-fun TextNameForPlaceItem(
-    name: String,
-    fontFamily: FontFamily = MegoFontFamily,
-    fontWeight: FontWeight = FontWeight.Medium,
-    color: Color = OpacityDark80,
-    lineHeight: TextUnit = 18.sp,
-    fontSize: TextUnit = 16.sp,
-    maxLines: Int = 5,
-    modifier: Modifier = Modifier,
-) {
-    Text(
-        name,
-        fontFamily = fontFamily,
-        fontWeight = fontWeight,
-        fontSize = fontSize,
-        color = color,
-        lineHeight = lineHeight,
-        overflow = TextOverflow.Ellipsis,
-        maxLines = maxLines,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun AddressForPlaceItem(
-    address: String,
-    fontFamily: FontFamily = MegoFontFamily,
-    fontWeight: FontWeight = FontWeight.Medium,
-    color: Color = OpacityDark80Lighter,
-    lineHeight: TextUnit = 16.sp,
-    fontSize: TextUnit = 12.sp,
-    maxLines: Int = 5,
-    modifier: Modifier = Modifier,
-) {
-    Text(
-        address,
-        fontFamily = fontFamily,
-        fontWeight = fontWeight,
-        fontSize = fontSize,
-        color = color,
-        lineHeight = lineHeight,
-        overflow = TextOverflow.Ellipsis,
-        maxLines = maxLines,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun LikeButton(onFavoriteClick: () -> Unit, isFavorite: Boolean, modifier: Modifier = Modifier) {
-    IconButton(
-        onClick = onFavoriteClick,
-        modifier = modifier
-    ) {
-        Icon(
-            imageVector = if (isFavorite) MegoIcons.favorite else MegoIcons.notFavorite,
-            contentDescription = null,
-            tint = if (isFavorite) ColorRed else OpacityDark40
-        )
-    }
-}
