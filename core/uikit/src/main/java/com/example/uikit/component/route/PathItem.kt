@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,14 +28,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.uikit.R
+import com.example.uikit.component.button.LikeButton
 import com.example.uikit.icon.MegoIcons
 import com.example.uikit.theme.ColorPurpure
-import com.example.uikit.theme.ColorRed
 import com.example.uikit.theme.CorporateMeGoPrimary
 import com.example.uikit.theme.MegoFontFamily
 import com.example.uikit.theme.OpacityDark40
 import com.example.uikit.theme.OpacityDark80
 import com.example.uikit.theme.OpacityLight60
+import com.example.uikit.theme.UIKitTheme
+import com.example.uikit.util.RussianPlural
 
 
 @Composable
@@ -58,7 +59,7 @@ fun PathItem(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(OpacityLight60),
+                .background(UIKitTheme.colors.background),
 
 
             ) {
@@ -125,7 +126,7 @@ fun PathItem(
                         )
                         Spacer(Modifier.width(4.dp))
                         Text(
-                            text = formatDotsText(path.markCount),
+                            text = RussianPlural.formatDotsText(path.markCount),
                             fontFamily = MegoFontFamily,
                             fontWeight = FontWeight.Normal,
                             fontSize = 12.sp,
@@ -146,7 +147,7 @@ fun PathItem(
                         )
                         Spacer(Modifier.width(4.dp))
                         Text(
-                            text = formatDays(path.duration),
+                            text = RussianPlural.formatDays(path.duration),
                             fontFamily = MegoFontFamily,
                             fontWeight = FontWeight.Normal,
                             fontSize = 12.sp,
@@ -156,49 +157,17 @@ fun PathItem(
                     }
                 }
             }
-            IconButton(
-                onClick = onLikeClick,
+            LikeButton(
+                onClick = { onLikeClick() },
+                isLiked = path.isFavorite,
                 modifier = Modifier
                     .align(Alignment.Top)
                     .padding(bottom = 2.dp),
             )
-            {
-                Icon(
-                    imageVector = if (path.isFavorite) MegoIcons.favorite else MegoIcons.notFavorite,
-                    contentDescription = null,
-                    tint = if (path.isFavorite) ColorRed else OpacityDark40
-                )
-            }
         }
     }
 }
 
-//Функции для склонений. Когда локализацию будем добавлять - вырезать.
-private fun formatDays(days: Int): String {
-    val lastTwoDigits = days % 100
-    val lastDigit = days % 10
-
-    return when {
-        lastTwoDigits in 11..14 -> "$days дней"
-        lastDigit == 1 -> "$days день"
-        lastDigit in 2..4 -> "$days дня"
-        else -> "$days дней"
-    }
-}
-
-private fun formatDotsText(count: Int): String {
-    val lastTwoDigits = count % 100
-    val lastDigit = count % 10
-
-    val word = when {
-        lastTwoDigits in 11..14 -> "точек"
-        lastDigit == 1 -> "точка"
-        lastDigit in 2..4 -> "точки"
-        else -> "точек"
-    }
-
-    return "$count $word"
-}
 
 //для тестов
 @Preview(showBackground = true)

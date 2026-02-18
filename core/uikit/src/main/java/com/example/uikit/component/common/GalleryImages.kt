@@ -22,14 +22,15 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import coil.compose.SubcomposeAsyncImage
 import com.example.uikit.icon.MegoIcons
+import com.example.uikit.theme.MegoFontFamily
 import com.example.uikit.theme.bgPrimary
 import com.example.uikit.theme.black
 import com.example.uikit.theme.bodyMedium500
-import com.example.uikit.theme.medium
 import kotlinx.collections.immutable.ImmutableList
 
 @Composable
@@ -57,13 +58,15 @@ fun GalleryImages(images: ImmutableList<String>) {
                     text = "${pagerState.currentPage + 1}",
                     color = black,
                     style = bodyMedium500,
-                    fontFamily = medium,
+                    fontFamily = MegoFontFamily,
+                    fontWeight = FontWeight.Medium
                 )
                 Text(
                     text = "/${images.size}",
                     color = black,
                     style = bodyMedium500,
-                    fontFamily = medium,
+                    fontFamily = MegoFontFamily,
+                    fontWeight = FontWeight.Medium
                 )
             }
         }
